@@ -65,17 +65,77 @@
 		margin:65px 0px 0px;
 		float:left;
 	}
+	div.title
+	{
+	    margin:20px 0px 20px 0px;
+	}
+	div.name
+	{
+	    width:67px;
+		height:26px;
+		border-style:solid;
+		border-color:black;
+		border-width:1px;
+		float:left;
+		line-height:26px;
+	}
+	div.infor
+	{
+	    width:235px;
+		height:26px;
+		border-style:solid;
+		border-color:red;
+		border-width:1px;
+		float:left;
+	}
+	div span
+	{
+	    font-size:12px;
+	}
+	div.note
+	{
+	    width:235px;
+		height:26px;
+		border-style:solid;
+		border-color:red;
+		border-width:1px;
+		float:left;
+		margin:5px 0px 0px 67px
+	}
 	h2
 	{
 	    font-family:幼圆;
 		color:black;
 		font-size:20px;
 	}
+	input
+	{
+	    border-style:solid;
+		border-color:#BBBBBB;
+		border-width:1px;
+		height:25px;
+		width:230px;
+	}
+	.font1
+	{ 
+	    color:#999999;
+	}
+	.note a:link
+	{
+	    color:#336699;
+		text-decoration:none;
+	}
+	.note a:hover
+	{
+	    color:red;
+		text-decoration:underline;
+	}
 
   </style>
  </head>
 
  <body>
+  <form method="post">
    <div class="header">
    </div>
 
@@ -83,7 +143,20 @@
      <div class="midd">
 
 	   <div class="left">
-	     <h2>十秒加入开心网，找到全部好友</h1>
+	     <div class="title">
+	       <h2>十秒加入开心网，找到全部好友</h1>
+		 </div>
+		 <div class="name">
+		   <span>电子邮箱：</span>
+		 </div>
+
+		 <div class="infor">
+		   <input type="text" name="txtenmal" />
+		 </div>
+
+		 <div class="note">
+		   <span class="font1">如果没有邮箱，你可以用<a href="#">账号注册</a></span>
+		 </div>
 	   </div>
 
 	   <div class="right">
@@ -94,5 +167,6 @@
 
    <div class="footer">
    </div>
+  </form>
  </body>
 </html>
