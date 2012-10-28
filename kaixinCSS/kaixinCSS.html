@@ -17,14 +17,14 @@
 		border-width:1px;
 		background-color:red;
 	}
-	div.main
+/*	div.main
 	{
 	    width:100%;
 		height:596px;
 		border-style:solid;
-		border-color:black;
+		border-color:blue;
 		border-width:1px;
-	}
+	}*/
 	div.midd
 	{
 	    border-style:solid;
@@ -40,7 +40,7 @@
 	    border-style:solid;
 		border-color:black;
 		border-width:1px;
-		width:870px;
+		width:1004px;
 		height:120px;
 		margin-left:auto;
 		margin-right:auto;
@@ -113,7 +113,7 @@
 	li
 	{
 		float:left;
-		margin-top:20px;
+		margin-top:14px;
 		width:100%;
 	}
     a:link
@@ -218,17 +218,53 @@
 	{
 	    padding-left:30px;
 		margin-top:35px;
-		border-style:solid;
-		border-color:red;
-		border-width:1px;
 	}
 	#words_h
 	{
 	    font-family:幼圆;
 		color:#DD4C4C;
 		font-size:20px;
-		font-weight:bold;
+		font-weight:bolder;
 		margin-bottom:20px;
+	}
+	.words_p
+	{
+	    font-family:幼圆;
+		color:#808080;
+		font-size:14px;
+        font-weight:bolder;
+		padding-bottom:10px;
+	}
+	.words_span
+	{
+	    color:#DD4C4C;
+	}
+	#footer_first
+	{
+	    width:100%;
+		font-size:12px;
+		border-style:solid;
+		border-color:black;
+		border-width:1px;
+	
+	}
+	.footer1_left
+	{
+	    float:left;
+	    height:40px;
+		margin-top:12px;
+		margin-left:-8px;
+	}
+	.footer1_right
+	{   
+	    float:right;
+		margin-top:12px;
+		color:#BC99BC;
+	}
+	.footer1left_a
+	{
+	   margin-left:8px;
+	   margin-right:8px;
 	}
   </style>
  </head>
@@ -238,7 +274,6 @@
    <div class="header">
    </div>
 
-   <div class="main">
      <div class="midd">
 
 	   <div class="left">
@@ -375,14 +410,30 @@
 		 <div class="line"></div>
 		 <div id="words">
 		   <p id="words_h">开心网</p>
-		   <p>平均每人拥有80位好友</p>
+		   <p class="words_p">平均每人拥有<span class="words_span">80</span>位好友</p>
+		   <p class="words_p">每天，平均每人上传<span class="words_span">10</span>张照片</p>
+		   <p class="words_p">每天，有<span class="words_span">1000万</span>次互动在好友间开心地发生着</p>
+		   <p class="words_p">中国人对<span class="words_span">社交网络</span>的真正了解，从这里开始</p>
 		 </div>
 	   </div> 
 
 	 </div>
-   </div>
 
    <div class="footer">
+     <div id="footer_first">
+	   <div class="footer1_left">
+	     <a class="footer1left_a" href="#">关于我们</a>
+	     <a class="footer1left_a" href="#">手机中心</a>
+		 <a class="footer1left_a" href="#">开放平台</a>
+		 <a class="footer1left_a" href="#">应用中心</a>
+		 <a class="footer1left_a" href="#">自助广告</a>
+		 <a class="footer1left_a" href="#">开心招聘</a>
+		 <a class="footer1left_a" href="#">客服</a>
+		 <a class="footer1left_a" href="#">帮助</a>
+	   </div>
+	   <div class="footer1_right"> 2012 开心网.
+	   </div>
+	 </div>
    </div>
   </form>
  </body>
