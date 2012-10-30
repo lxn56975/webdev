@@ -11,20 +11,34 @@
 	div.header
 	{
 	    width:100%;
-		height:40px;
+		height:41px;
 		border-style:solid;
 		border-color:black;
 		border-width:1px;
-		background-color:red;
+		background-color:#E44049;
 	}
-/*	div.main
+	.picborder
 	{
-	    width:100%;
-		height:596px;
-		border-style:solid;
-		border-color:blue;
-		border-width:1px;
-	}*/
+	    border-width:0px;
+	}
+	.header_pic
+	{
+	    margin-left:12%;
+		float:left;
+		width:200px;
+	}
+	.header_t
+	{
+	   float:right;
+	   margin-right:8%;
+	   font-size:12px;
+	   width:200px;
+	   line-height:40px;
+	}
+	.headert_a
+	{
+	   color:#FFFFFF;
+	}
 	div.midd
 	{
 	    border-style:solid;
@@ -242,6 +256,7 @@
 	#footer_first
 	{
 	    width:100%;
+		height:42px;
 		font-size:12px;
 		border-style:solid;
 		border-color:black;
@@ -251,7 +266,7 @@
 	.footer1_left
 	{
 	    float:left;
-	    height:40px;
+	    height:20px;
 		margin-top:12px;
 		margin-left:-8px;
 	}
@@ -259,12 +274,25 @@
 	{   
 	    float:right;
 		margin-top:12px;
-		color:#BC99BC;
+		color:#999999;
 	}
 	.footer1left_a
 	{
 	   margin-left:8px;
 	   margin-right:8px;
+	}
+	#footer_second
+	{
+	   background-color:rgb(240, 239, 239);
+	   height:27px;
+	   font-size:12px;
+	   color:rgb(153,153,153);
+	   width:100%;
+	   line-height:27px;
+	   text-align:left;
+	}
+	.footer2_one
+	{
 	}
   </style>
  </head>
@@ -272,6 +300,15 @@
  <body>
   <form method="post">
    <div class="header">
+     <div class="header_pic">
+       <a href="#"><img class="picborder" src="images/p1.jpg"></a>
+	 </div>
+	 <div class="header_t">
+	   <a style="color:#FFFFFF;" href="#">注册</a>
+	   <a style="color:#FFFFFF;" href="#">登录</a>
+	   <a style="color:#FFFFFF;" href="#">帮助</a>
+	   <a style="color:#FFFFFF;" href="#">导航</a>
+	 </div>
    </div>
 
      <div class="midd">
@@ -431,8 +468,15 @@
 		 <a class="footer1left_a" href="#">客服</a>
 		 <a class="footer1left_a" href="#">帮助</a>
 	   </div>
-	   <div class="footer1_right"> 2012 开心网.
+	   <div class="footer1_right"> c2012 开心网.
 	   </div>
+	 </div>
+	 <div id="footer_second">
+	   <span>北京开心人信息技术有限公司： 文网文[2009]157号(甲)</span>
+	   <span><a href="#">京ICP证080482号</a></span>
+	   <span>京公网安备1100003号</span>
+	   <span>(京)-非经营性-2009-0009</span>
+	   <span><a href="#">未成年家长监护</a><span>
 	 </div>
    </div>
   </form>
