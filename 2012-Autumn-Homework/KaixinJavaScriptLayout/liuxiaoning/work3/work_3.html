@@ -28,15 +28,31 @@
       }
       function out_password()
       {
-         div_yincang_name.style.display="none";
-         div_yincang_email.style.display="none";
-         div_yincang_password.style.display="block"; div1.style.display="none";
+           var str_password ;
+           str_password=text_password.value;
+           if(str_password.length==0)
+                {
+                  div_yincang_name.style.display="none";
+                  div_yincang_email.style.display="none";
+                  div_yincang_password.style.display="block";
+                  div1.style.display="none";
+                  }
+                else  
+                   div_yincang_password.style.display="none";
       }
       function out_name()
       {
-         div_yincang_password.style.display="none";
-         div_yincang_email.style.display="none";
-         div_yincang_name.style.display="block";div1.style.display="none";
+         var str_name;
+         str_name=text_name.value;
+         if(str_name==0)
+         {
+            div_yincang_password.style.display="none";
+            div_yincang_email.style.display="none";
+            div_yincang_name.style.display="block";
+            div1.style.display="none";
+            }
+           else 
+               div_yincang_name.style.display="none";
       }
       function zhuanhuan1()
       {
@@ -86,6 +102,30 @@
             if(flag==1)
                 alert("OK");
      }
+     function jiance_password()
+     {
+        var str_password=text_password.value;
+        if(str_password.length<6 &&str_password.length!=0 )
+             div_jiance_password.style.display="block";
+             else
+               div_jiance_password.style.display="none";
+        
+     }
+       function jiance_name()
+       {
+            var str_name=text_name.value;
+                if(str_name.length<6 &&str_name.length!=0 )
+                   div_jiance_name.style.display="block";
+             else
+               div_jiance_name.style.display="none";
+       }
+       function jiance_birthday()
+       {
+           if(select_year.value!="请选择" && select_month.value!=" "  &&select_day.value!=" ")
+                 tutu02.style.display="block";
+                 else 
+                   tutu02.style.display="none";
+       }
       
   
   </script>
@@ -164,17 +204,34 @@
 				  </li>
 				  <li>
 				    <div class="div_body_left_l_left">创建密码：</div>
-				        <div class="div_body_left_l_right"><input class="input_text" type="password" onclick="out_password()"  onblur="xiaoshi()" /></div>
+				        <div class="div_body_left_l_right"><input class="input_text" id="text_password" type="password" onclick="out_password()"  onchange="jiance_password()" onblur="xiaoshi()" /></div>
 				        <div class="div_yincang" id="div_yincang_password" >
 				           由6-20个字母、数字或特殊字符组成
+				        </div>
+				        <div class="div_jiance" id="div_jiance_password">
+				             <div class="div_img" style="width:18px;height:24px;float:left;">
+				                    <img src="6.gif" />
+				             </div>
+				             <div class="div_jiance_wenben" >
+				                       密码应该由6-20个字母、数字或特殊字符组成
+				             </div>
 				        </div>
 				  </li>
 				  <li>
 				    <div class="div_body_left_l_left">姓   &nbsp&nbsp&nbsp&nbsp 名：</div>
-				      <div class="div_body_left_l_right"><input class="input_text" type="text" onclick="out_name()"  onblur="xiaoshi()" /></div>
+				      <div class="div_body_left_l_right"><input class="input_text" id="text_name" type="text" onclick="out_name()" onchange="jiance_name()"  onblur="xiaoshi()" /></div>
 				      <div class="div_yincang" id="div_yincang_name" >
 				         请填写你的真实中文姓名
 				      </div>
+				       <div class="div_jiance" id="div_jiance_name">
+				             <div class="div_img" style="width:18px;height:24px;float:left;">
+				                    <img src="6.gif" />
+				             </div>
+				             <div class="div_jiance_wenben" >
+				                       请填写你的真实中文姓名
+				             </div>
+				        </div>
+				        
 				  </li>
 				  <li>
 				    <div class="div_body_left_l_left">性   &nbsp&nbsp&nbsp&nbsp 别：</div>
@@ -187,8 +244,8 @@
 				  <li>
 				     <div class="div_body_left_l_left">生 &nbsp&nbsp&nbsp&nbsp 日：</div>
 				     <div class="div_body_left_l_right"> 
-				           <select name="year">
-                               <option >- -</option>
+				           <select name="year" onchange="jiance_birthday()" id="select_year">
+                               <option >请选择</option>
                                <option >1990</option>
                                <option >1991</option> 
                                <option >1992</option>
@@ -200,8 +257,8 @@
 							   <option >1998</option>
 							   <option >1999</option> 
                         </select>年 &nbsp
-                          <select name="month">
-						       <option >--</option>
+                          <select name="month"  onchange="jiance_birthday()" id="select_month">
+						       <option > </option>
 						       <option >01</option>
 							   <option >02</option>
 							   <option >03</option>
@@ -215,8 +272,8 @@
 							   <option >11</option>
 							   <option >12</option>
 				         </select>月&nbsp
-                          <select name="day">
-						  <option >- -</option>
+                          <select name="day" id="select_day" onchange="jiance_birthday()">
+						  <option > </option>
 						  <option >01</option>
 						  <option >02</option>
 						  <option >03</option>
@@ -250,12 +307,18 @@
 						  <option >31</option>
 				         </select>日 &nbsp&nbsp
 				     </div>
+				       <div class="div_out_tutu" id="tutu02"  >
+				              <img class="img_tutu"  src="5.gif"/>
+				       </div>
 				  </li>
 				  <li>
 				     <div class="div_body_left_l_left">我  现 在 ：</div>
 				     <div class="div_body_left_l_right">
-				        <input type="radio" name="where" />在工作  &nbsp&nbsp&nbsp&nbsp&nbsp <input type="radio" name="where" />在上学
+				        <input type="radio" name="where"  checked="checked" onfocus="{tutu03.style.display='block';}" />在工作  &nbsp&nbsp&nbsp&nbsp&nbsp <input type="radio" name="where" onfocus="{tutu03.style.display='block';}" />在上学
 				     </div>
+				     <div class="div_out_tutu" id="tutu03"  >
+				              <img class="img_tutu"  src="5.gif"/>
+				       </div>
 				  </li>
 				  <li>
 				     <div class="div_body_left_l_left">居 住 地 ：</div>

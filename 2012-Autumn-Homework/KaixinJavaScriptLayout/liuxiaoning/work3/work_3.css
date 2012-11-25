@@ -270,3 +270,27 @@
 		   	     display:block;
 		   	     margin:4px 0px 4px 4px;
 		   	   	}
+		   	  .div_jiance
+		   	  {
+		   	  	position:absolute;
+		   	  	width:170px;
+		   	  	float:left;
+		   	    text-align:left;
+		   	    z-index:1;
+		   	     position:absolute;
+		   	     top:0;
+		   	     left:310px;
+		   	     display:none;
+		   	  }
+		   	  .div_jiance_wenben
+		   	  {
+		   	  	width:140px;
+		   	    text-align:left;
+		   	    background-color:#FFFFCD;
+		   	    padding:4px 2px 2px 4px;
+		   	    font-size:12px;
+		   	    line-height:18px;
+		   	    color:#333333;
+		   	    float:left; 
+		   	    border:solid 1px #dbdbdb;
+		   	  	}
