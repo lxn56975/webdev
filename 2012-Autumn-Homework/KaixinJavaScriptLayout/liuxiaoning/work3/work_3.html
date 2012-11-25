@@ -11,11 +11,8 @@
 	<link href="work_3.css" type="text/css"rel="stylesheet" />   	  		
 		   	
 
-  <script>
-      function start()
-      {
-         
-      }
+  <script type="text/javascript">
+ 
       function out_email()
       {
          div_yincang_password.style.display="none";
@@ -51,11 +48,50 @@
       li_one.style.display="block";
       li_two.style.display="none";
       }
+      function xiaoshi()
+      {
+            div_yincang_password.style.display="none";
+         div_yincang_name.style.display="none";
+         div_yincang_email.style.display="none";
+        div1.style.display="none";
+        
+      }
+      function out_tutu01()
+      {
+          tutu01.style.display="block";
+      }
+      function change_email()
+      {
+           div_email_change.style.display="block";
+          aa01.innerHTML=text_email01.value+"@qq.com";
+           aa02.innerHTML=text_email01.value+"@163.com";
+           aa03.innerHTML=text_email01.value+"@sina.com";
+           aa04.innerHTML=text_email01.value+"@sina.cn";
+           aa05.innerHTML=text_email01.value+"@hotmail.com";
+           aa06.innerHTML=text_email01.value+"@gmail.com";
+           aa07.innerHTML=text_email01.value+"@sohu.cn";
+           aa08.innerHTML=text_email01.value+"@yahoo.cn";
+           aa09.innerHTML=text_email01.value+"@139.cn";
+           
+      }
+     function jiance_email()
+     {
+          var str1=text_email01.value;
+          var flag=0;
+          
+          for( var i=0;i<str1.length;i++)
+               if(str1[i]=="@")
+                       flag=1;
+            
+            if(flag==1)
+                alert("OK");
+     }
+      
   
   </script>
  </head>
 
- <body onclick="start()">
+ <body onclick="{div_email_change.style.display='none';}">
     <div id="div_head">
         <center>
 	        <div id="div_head_left">
@@ -86,7 +122,7 @@
 	<center>
 	   <div id="div_body" >
            <div class="div_body_left">
-		      <div style="position:relative;text-align=left;">
+		      <div style="position:relative;text-align:left;">
 			       <h3 id="h3">
 				     十秒加入开心网，找到全部好友
 				   </h3>
@@ -95,7 +131,20 @@
 			      <li id="li_one">
 				     <div class="div_body_left_l_left"> 电子邮箱：</div>
 					  <div class="div_body_left_l_right" >
-					      <input class="input_text" type="text" onclick="out_email()"  /><br/>
+					      <div id="div_email_change" >
+					          <b>请选择邮箱的类型</b>
+					              <a  id="aa01" class="a_email_change"   onclick="{text_email01.value=aa01.innerHTML; div_email_change.style.display='none';}">@qq.com</a>
+					              <a  id="aa02" class="a_email_change"  onclick="{text_email01.value=aa02.innerHTML; div_email_change.style.display='none';}">@163.com</a>
+					              <a  id="aa03" class="a_email_change"  onclick="{text_email01.value=aa03.innerHTML; div_email_change.style.display='none';}">@sina.com</a>
+					              <a  id="aa04" class="a_email_change"  onclick="{text_email01.value=aa04.innerHTML; div_email_change.style.display='none';}">@sina.cn</a>
+					              <a  id="aa05" class="a_email_change"   onclick="{text_email01.value=aa05.innerHTML; div_email_change.style.display='none';}">@hotmail.com</a>
+					              <a  id="aa06" class="a_email_change"  onclick="{text_email01.value=aa06.innerHTML; div_email_change.style.display='none';}">@gmail.com </a>
+					              <a  id="aa07" class="a_email_change"   onclick="{text_email01.value=aa07.innerHTML; div_email_change.style.display='none';}">@sohu.cn</a>
+					              <a  id="aa08" class="a_email_change"  onclick="{text_email01.value=aa08.innerHTML; div_email_change.style.display='none';}">@yahoo.cn</a>
+					              <a  id="aa09" class="a_email_change"  onclick="{text_email01.value=aa09.innerHTML; div_email_change.style.display='none';}">@139.cn</a>
+					              
+					      </div>
+					      <input  id="text_email01" class="input_text" type="text" onclick="out_email()"  onblur="xiaoshi()" onkeyup="change_email()" onload="jiance_email()" /><br/>
 						  <font style="font-size:12px;color:#999999;">如果没有邮箱，你可以用</font><a id="a1" onclick="zhuanhuan1()" >注册账号</a>
                       </div> 
                       <div class="div_yincang" id="div_yincang_email">
@@ -106,7 +155,7 @@
 				  <li id="li_two" style="display:none;">
 				     <div class="div_body_left_l_left"> 账 &nbsp &nbsp 号：</div>
 					  <div class="div_body_left_l_right" >
-					      <input class="input_text" type="text" onclick="out_email2()"  /><br/>
+					      <input class="input_text" type="text" onclick="out_email2()"  onblur="xiaoshi()" /><br/>
 						  <font style="font-size:12px;color:#999999;">切换至</font><a id="a2" onclick="zhuanhuan2()" style="font-size:12px;">邮箱注册</a>
                       </div> 
                       <div class="div_yincang" id="div1" style="display:none;">
@@ -115,21 +164,25 @@
 				  </li>
 				  <li>
 				    <div class="div_body_left_l_left">创建密码：</div>
-				        <div class="div_body_left_l_right"><input class="input_text" type="password" onclick="out_password()" /></div>
+				        <div class="div_body_left_l_right"><input class="input_text" type="password" onclick="out_password()"  onblur="xiaoshi()" /></div>
 				        <div class="div_yincang" id="div_yincang_password" >
 				           由6-20个字母、数字或特殊字符组成
 				        </div>
 				  </li>
 				  <li>
 				    <div class="div_body_left_l_left">姓   &nbsp&nbsp&nbsp&nbsp 名：</div>
-				      <div class="div_body_left_l_right"><input class="input_text" type="text" onclick="out_name()" /></div>
+				      <div class="div_body_left_l_right"><input class="input_text" type="text" onclick="out_name()"  onblur="xiaoshi()" /></div>
 				      <div class="div_yincang" id="div_yincang_name" >
 				         请填写你的真实中文姓名
 				      </div>
 				  </li>
 				  <li>
 				    <div class="div_body_left_l_left">性   &nbsp&nbsp&nbsp&nbsp 别：</div>
-				       <div class="div_body_left_l_right"> 男：<input type="radio" checked="checked" name="sex" />&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 女：<input type="radio"  name="sex" /></div>
+				       <div class="div_body_left_l_right"> 男：<input type="radio" checked="checked" name="sex" onfocus="out_tutu01()" />&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 女：<input type="radio"  name="sex" onfocus="out_tutu01()" />
+				       </div>
+				        <div class="div_out_tutu" id="tutu01"  >
+				              <img class="img_tutu"  src="5.gif"/>
+				       </div>
 				  </li>
 				  <li>
 				     <div class="div_body_left_l_left">生 &nbsp&nbsp&nbsp&nbsp 日：</div>
