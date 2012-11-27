@@ -109,6 +109,10 @@
              div_jiance_password.style.display="block";
              else
                div_jiance_password.style.display="none";
+               if(str_password.length>=6)
+                  tutu000.style.display="block";
+                  else
+                     tutu000.style.display="none";
         
      }
        function jiance_name()
@@ -118,13 +122,68 @@
                    div_jiance_name.style.display="block";
              else
                div_jiance_name.style.display="none";
+               if(str_name.length>=6)
+                   tutu00.style.display="block";
        }
        function jiance_birthday()
        {
-           if(select_year.value!="请选择" && select_month.value!=" "  &&select_day.value!=" ")
+           if(select_year.value!="请选择" && select_month.value!="--" && select_day.value!="--" )
                  tutu02.style.display="block";
-                 else 
+               else 
                    tutu02.style.display="none";
+       }
+       function jiance_address()
+       {
+            tutu04.style.display="block";
+       }
+       function bianse_zhuce()
+       {
+            div_zhuce.style.backgroundColor="#E7454F";
+            div_zhuce.style.color="#FFFFFF";
+            
+            
+       }
+       function fanhui_zhuce()
+       {
+             div_zhuce.style.backgroundColor="#DB3741";
+            div_zhuce.style.color="#FAD9DB";
+            div_zhuce.style.border="0px";
+       }
+       function bianse_bangzhu()
+       {
+            div_bangzhu.style.backgroundColor="#E7454F";
+            div_bangzhu.style.color="#FFFFFF";
+            
+       }
+       function fanhui_bangzhu()
+       {
+             div_bangzhu.style.backgroundColor="#DB3741";
+            div_bangzhu.style.color="#FAD9DB";
+            div_bangzhu.style.border="0px";
+       }
+       function bianse_daohang()
+       {
+            div_daohang.style.backgroundColor="#E7454F";
+            div_daohang.style.color="#FFFFFF";
+            
+       }
+       function fanhui_daohang()
+       {
+             div_daohang.style.backgroundColor="#DB3741";
+            div_daohang.style.color="#FAD9DB";
+            div_daohang.style.border="0px";
+       }
+      function bianse_denglu()
+       {
+            div_denglu.style.backgroundColor="#E7454F";
+            div_denglu.style.color="#FFFFFF";
+            
+       }
+       function fanhui_denglu()
+       {
+             div_denglu.style.backgroundColor="#DB3741";
+            div_denglu.style.color="#FAD9DB";
+            div_denglu.style.border="0px";
        }
       
   
@@ -136,22 +195,22 @@
         <center>
 	        <div id="div_head_left">
 	            <img src="0.jpg" />
-				 <div class="div_head_right">
+				 <div class="div_head_right" id="div_daohang" onmouseover="bianse_daohang()" onmouseout="fanhui_daohang()">
 				   <a class="a_head_right" href="http://www.kaixin001.com">
 				     <b>导航 </b>
 				   </a>
 				 </div>
-				 <div class="div_head_right">
+				 <div class="div_head_right" id="div_bangzhu" onmouseover="bianse_bangzhu()" onmouseout="fanhui_bangzhu()">
 				    <a class="a_head_right" href="http://www.kaixin001.com">
 					  <b> 帮助</b>
 					</a>
 				 </div>
-				 <div class="div_head_right">
+				 <div class="div_head_right" id="div_denglu" onmouseover="bianse_denglu()" onmouseout="fanhui_denglu()">
 				    <a class="a_head_right" href="http://www.kaixin001.com">
 					  <b> 登陆</b>
 					</a>
 				 </div>
-				 <div class="div_head_right">
+				 <div  id="div_zhuce" class="div_head_right" onmouseover="bianse_zhuce()" onmouseout="fanhui_zhuce()">
 				    <a class="a_head_right" href="http://www.kaixin001.com">
 					  <b> 注册</b>
 					</a>
@@ -216,6 +275,9 @@
 				                       密码应该由6-20个字母、数字或特殊字符组成
 				             </div>
 				        </div>
+				          <div class="div_out_tutu" id="tutu000"  >
+				              <img class="img_tutu"  src="5.gif"/>
+				       </div>
 				  </li>
 				  <li>
 				    <div class="div_body_left_l_left">姓   &nbsp&nbsp&nbsp&nbsp 名：</div>
@@ -231,7 +293,9 @@
 				                       请填写你的真实中文姓名
 				             </div>
 				        </div>
-				        
+				        <div class="div_out_tutu" id="tutu00"  >
+				              <img class="img_tutu"  src="5.gif"/>
+				       </div>
 				  </li>
 				  <li>
 				    <div class="div_body_left_l_left">性   &nbsp&nbsp&nbsp&nbsp 别：</div>
@@ -258,7 +322,7 @@
 							   <option >1999</option> 
                         </select>年 &nbsp
                           <select name="month"  onchange="jiance_birthday()" id="select_month">
-						       <option > </option>
+						       <option >--</option>
 						       <option >01</option>
 							   <option >02</option>
 							   <option >03</option>
@@ -273,7 +337,7 @@
 							   <option >12</option>
 				         </select>月&nbsp
                           <select name="day" id="select_day" onchange="jiance_birthday()">
-						  <option > </option>
+						  <option >--</option>
 						  <option >01</option>
 						  <option >02</option>
 						  <option >03</option>
@@ -323,14 +387,61 @@
 				  <li>
 				     <div class="div_body_left_l_left">居 住 地 ：</div>
 				     <div class="div_body_left_l_right"> 
-				        <select id="select_address" name="address">
-				           <option>济南</option>
-				           <option>青岛</option>
-				           <option>威海</option>
-				           <option>烟台</option>
-				           <option>德州</option>
-				        </select>
+				        <input id="select_address" type="text" value="济南" onfocus="jiance_address()" style="cursor: pointer; background-image: url('9.gif'); background-attachment: scroll; background-repeat: no-repeat; background-position-x: right; background-position-y: 4px; background-size: auto; background-origin: padding-box; background-clip: border-box; background-color: transparent;"  onclick="{div_city.style.display='block';}" />
+				          
+				       
 				     </div>
+				     <div id="div_city">
+				         <img src="7.gif" />
+				         <div id="div_city_content">
+				               <div id="div_city_city">
+				                    <a class="a_city_content" onclick="{select_address.value='北京';div_city.style.display='none';}">北京</a>
+				                    <a class="a_city_content" onclick="{select_address.value='上海';div_city.style.display='none';}">上海</a>
+				                    <a class="a_city_content"onclick="{select_address.value='天津';div_city.style.display='none';}">天津</a>
+				                    <a class="a_city_content"onclick="{select_address.value='重庆';div_city.style.display='none';}">重庆</a>
+				                    <a class="a_city_content"onclick="{select_address.value='黑龙江';div_city.style.display='none';}">黑龙江</a>
+				                    <a class="a_city_content"onclick="{select_address.value='吉林';div_city.style.display='none';}">吉林</a>
+				                    <a class="a_city_content"onclick="{select_address.value='辽宁';div_city.style.display='none';}">辽宁</a>
+				                    <a class="a_city_content"onclick="{select_address.value='山东';div_city.style.display='none';}">山东</a>
+				                    <a class="a_city_content"onclick="{select_address.value='山西';div_city.style.display='none';}">山西</a>
+				                    <a class="a_city_content"onclick="{select_address.value='陕西';div_city.style.display='none';}">陕西</a>
+				                    <a class="a_city_content"onclick="{select_address.value='河北';div_city.style.display='none';}">河北</a>&nbsp
+				                    <a class="a_city_content"onclick="{select_address.value='河南';div_city.style.display='none';}">河南</a>
+				                    <a class="a_city_content"onclick="{select_address.value='湖北';div_city.style.display='none';}">湖北</a>
+				                    <a class="a_city_content"onclick="{select_address.value='湖南';div_city.style.display='none';}">湖南</a>
+				                    <a class="a_city_content"onclick="{select_address.value='海南';div_city.style.display='none';}">海南</a>
+				                    <a class="a_city_content"onclick="{select_address.value='江苏';div_city.style.display='none';}">江苏</a>
+				                    <a class="a_city_content"onclick="{select_address.value='江西';div_city.style.display='none';}">江西</a>
+				                    <a class="a_city_content"onclick="{select_address.value='广东';div_city.style.display='none';}">广东</a>
+				                    <a class="a_city_content"onclick="{select_address.value='广西';div_city.style.display='none';}">广西</a>
+				                    <a class="a_city_content"onclick="{select_address.value='云南';div_city.style.display='none';}">云南</a>
+				                    <a class="a_city_content"onclick="{select_address.value='贵州';div_city.style.display='none';}">贵州</a>
+				                    <a class="a_city_content"onclick="{select_address.value='四川';div_city.style.display='none';}">四川</a>&nbsp &nbsp
+				                    <a class="a_city_content"onclick="{select_address.value='内蒙古';div_city.style.display='none';}">内蒙古</a>
+				                    <a class="a_city_content"onclick="{select_address.value='宁夏';div_city.style.display='none';}">宁夏</a>
+				                    <a class="a_city_content"onclick="{select_address.value='甘肃';div_city.style.display='none';}">甘肃</a>
+				                    <a class="a_city_content"onclick="{select_address.value='青海';div_city.style.display='none';}">青海</a>
+				                    <a class="a_city_content"onclick="{select_address.value='西藏';div_city.style.display='none';}">西藏</a>
+				                    <a class="a_city_content"onclick="{select_address.value='新疆';div_city.style.display='none';}">新疆</a>
+				                    <a class="a_city_content"onclick="{select_address.value='安徽';div_city.style.display='none';}">安徽</a>
+				                    <a class="a_city_content"onclick="{select_address.value='浙江';div_city.style.display='none';}">浙江</a>
+				                    <a class="a_city_content"onclick="{select_address.value='福建';div_city.style.display='none';}">福建</a>
+				                    <a class="a_city_content"onclick="{select_address.value='香港';div_city.style.display='none';}">香港</a>
+				                    <a class="a_city_content"onclick="{select_address.value='台湾';div_city.style.display='none';}">台湾</a>&nbsp
+				                    <a class="a_city_content"onclick="{select_address.value='澳门';div_city.style.display='none';}">澳门</a>
+				                    <a class="a_city_content"onclick="{select_address.value='海外';div_city.style.display='none';}">海外</a>
+				               </div>
+				         </div>
+				         <div id="div_close">
+				                <input type="button" value="关闭" style="margin-right:18px; margin-top:10px;" onclick="{if(div_city.style.display='block') div_city.style.display='none';}" />
+				         </div>
+				         <div id="div_city_down">
+				              <img src="8.gif" />
+				         </div>
+				     </div>
+				      <div class="div_out_tutu" id="tutu04" >
+				              <img class="img_tutu"  src="5.gif"/>
+				       </div>
 				  </li>
 				  <li>
 				     <div class="div_body_left_l_left">&nbsp</div>
@@ -341,7 +452,7 @@
 				  <li>
 				     <div class="div_body_left_l_left"> &nbsp</div>
 				     <div class="div_body_left_l_right">
-				        <input  id="input_zhuce" type="submit" name="log" value="立即注册" />
+				         <input  id="input_zhuce" type="submit" name="log"  value="立即注册" />
 				     </div>
 				  </li>
 			  </ul>

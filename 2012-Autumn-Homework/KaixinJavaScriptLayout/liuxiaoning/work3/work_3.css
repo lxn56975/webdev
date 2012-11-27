@@ -294,3 +294,49 @@
 		   	    float:left; 
 		   	    border:solid 1px #dbdbdb;
 		   	  	}
+		   	  	#div_city
+		   	  	{
+		   	  		position:absolute;
+		   	  		top:15px;
+		   	  		left:70px;
+		   	  		display:none;
+		   	  		z-index:3;
+		   	  		
+		   	  		}
+		   	  		#div_city_content
+		   	  		{
+		   	  		   background-color:#F7F7F7;
+		   	  		   border-left:1px;
+		   	  		   border-left-color:#C9C9C9;
+		   	  		   border-left-style:solid;
+		   	  		   border-right:solid 1px #C9C9C9;
+		   	  		   
+		   	  			}
+		   	  		#div_city_city
+		   	  		{
+		   	  			width:410px;
+		   	  			line-height:180%;
+		   	  			border:solid 1px #c8c8c8;
+		   	  			margin-left:22px;
+		   	  			background-color:#FFFFFF;
+		   	  			text-align:left;
+		   	  			
+		   	  		}
+		   	  	.a_city_content
+		   	  	{
+		   	  		margin:2px 2px 2px 2px;
+		   	  		color:#336699;
+		   	  		 text-decoration:none;
+		             cursor:pointer;
+	             	 font-size:13px;
+	             	 font-family:Î¢ÈíÑÅºÚ;
+		   	  		}
+		   	  		#div_close
+		   	  		{
+		   	  			 background-color:#F7F7F7;
+		   	  		   border-left:1px;
+		   	  		   border-left-color:#C9C9C9;
+		   	  		   border-left-style:solid;
+		   	  		   border-right:solid 1px #C9C9C9;
+		   	  		   text-align:right;
+		   	  			}
