@@ -90,18 +90,70 @@
            aa09.innerHTML=text_email01.value+"@139.cn";
            
       }
-     function jiance_email()
-     {
-          var str1=text_email01.value;
-          var flag=0;
-          
-          for( var i=0;i<str1.length;i++)
-               if(str1[i]=="@")
-                       flag=1;
-            
-            if(flag==1)
-                alert("OK");
-     }
+  
+     //-----------------------
+     function mail_turnNone()
+    {
+        var temp=document.getElementById('text_email01').value;
+         document.getElementById('div_yincang_email').style.display = "none";
+          //* 判断邮箱是否符合格式要求
+         if(IsEmail(temp)&&(!IsEmpty(temp)))
+         {
+            document.getElementById('tutu0000').style.display = "block";
+           document.getElementById('div_yincang_email').style.display = "none";
+           document.getElementById('div_jiance_email').style.display = "none";
+          }
+        else if(IsEmpty(temp))
+         {
+             document.getElementById('tutu0000').style.display = "none";
+             document.getElementById('div_yincang_email').style.display = "block";
+              document.getElementById('div_jiance_email').style.display = "none";
+         }
+         else
+        {
+            document.getElementById('div_yincang_email').style.display = "none";
+            document.getElementById('div_jiance_email').style.display = "block";
+           document.getElementById('tutu0000').style.display = "none";
+        }
+      }
+
+//****************************************************************
+//* 名　　称：IsEmail
+//* 功    能：判断是否为正确的Email地址
+//* 入口参数：fData：要检查的数据
+//* 出口参数：True：正确的Email地址，或者空                              
+//*           False：错误的Email地址
+//*****************************************************************
+function IsEmail(fData)
+{
+    if (IsEmpty(fData))
+        return true
+    if (fData.indexOf("@")==-1)
+        return false
+    var NameList=fData.split("@");
+    if (NameList.length!=2)
+        return false 
+    if (NameList[0].length<1 )
+        return false   
+    if (NameList[1].indexOf(".")<=0)
+        return false 
+    if (fData.indexOf("@")>fData.indexOf(".")) 
+        return false
+    if (fData.indexOf(".")==fData.length-1)
+        return false
+    return true    
+}
+//****************************************************************
+//* 名　　称：IsEmpty
+//* 功    能：判断是否为空
+//* 入口参数：fData：要检查的数据
+//* 出口参数：True：空                              
+//*           False：非空
+function IsEmpty(fData)
+{
+    return ((fData==null) || (fData.length==0) )
+}
+     //----------------------
      function jiance_password()
      {
         var str_password=text_password.value;
@@ -119,7 +171,8 @@
        {
             var str_name=text_name.value;
                 if(str_name.length<6 &&str_name.length!=0 )
-                   div_jiance_name.style.display="block";
+                   {div_jiance_name.style.display="block";
+                   tutu00.style.display="none";}
              else
                div_jiance_name.style.display="none";
                if(str_name.length>=6)
@@ -147,31 +200,31 @@
        {
              div_zhuce.style.backgroundColor="#DB3741";
             div_zhuce.style.color="#FAD9DB";
-            div_zhuce.style.border="0px";
+           
        }
        function bianse_bangzhu()
        {
             div_bangzhu.style.backgroundColor="#E7454F";
             div_bangzhu.style.color="#FFFFFF";
-            
+          
        }
        function fanhui_bangzhu()
        {
              div_bangzhu.style.backgroundColor="#DB3741";
             div_bangzhu.style.color="#FAD9DB";
-            div_bangzhu.style.border="0px";
+           
        }
        function bianse_daohang()
        {
             div_daohang.style.backgroundColor="#E7454F";
             div_daohang.style.color="#FFFFFF";
-            
+            action_top_right.style.display="block";
        }
        function fanhui_daohang()
        {
              div_daohang.style.backgroundColor="#DB3741";
             div_daohang.style.color="#FAD9DB";
-            div_daohang.style.border="0px";
+            action_top_right.style.display="none";
        }
       function bianse_denglu()
        {
@@ -183,8 +236,58 @@
        {
              div_denglu.style.backgroundColor="#DB3741";
             div_denglu.style.color="#FAD9DB";
-            div_denglu.style.border="0px";
+           
        }
+       
+       
+       function _bgcolor(temp)
+{
+    switch(temp)
+    {
+        case 1:document.getElementById("phone").style.background="rgb(235,75,85)";break;
+        case 2:document.getElementById("zhuantie").style.background="rgb(235,75,85)";break;
+        case 3:document.getElementById("vote").style.background="rgb(235,75,85)";break;
+        case 4:document.getElementById("log").style.background="rgb(235,75,85)";break;
+        case 5:document.getElementById("topic").style.background="rgb(235,75,85)";break;
+        case 6:document.getElementById("shopping").style.background="rgb(235,75,85)";break;
+        case 7:document.getElementById("games").style.background="rgb(235,75,85)";break;
+        case 8:document.getElementById("prinsiple").style.background="rgb(235,75,85)";break;
+        case 9:document.getElementById("animal").style.background="rgb(235,75,85)";break;
+        case 10:document.getElementById("photo").style.background="rgb(235,75,85)";break;
+        case 11:document.getElementById("evaluate").style.background="rgb(235,75,85)";break;
+        case 12:document.getElementById("movie").style.background="rgb(235,75,85)";break;
+        case 13:document.getElementById("video").style.background="rgb(235,75,85)";break;
+        case 14:document.getElementById("jipin").style.background="rgb(235,75,85)";break;
+        case 15:document.getElementById("webgame").style.background="rgb(235,75,85)";break;
+        case 16:document.getElementById("socialgame").style.background="rgb(235,75,85)";break;
+        case 17:document.getElementById("meike").style.background="rgb(235,75,85)";break;
+        case 18:document.getElementById("bargin").style.background="rgb(235,75,85)";break;
+    }
+}
+function _bgcolor_cancel(temp)
+{
+    switch(temp)
+    {
+        case 1:document.getElementById("phone").style.background="#FAFAFA";break;
+        case 2:document.getElementById("zhuantie").style.background="#FAFAFA";break;
+        case 3:document.getElementById("vote").style.background="#FAFAFA";break;
+        case 4:document.getElementById("log").style.background="#FAFAFA";break;
+        case 5:document.getElementById("topic").style.background="#FAFAFA";break;
+        case 6:document.getElementById("shopping").style.background="#FAFAFA";break;
+        case 7:document.getElementById("games").style.background="#FAFAFA";break;
+        case 8:document.getElementById("prinsiple").style.background="#FAFAFA";break;
+        case 9:document.getElementById("animal").style.background="#FAFAFA";break;
+        case 10:document.getElementById("photo").style.background="#FAFAFA";break;
+        case 11:document.getElementById("evaluate").style.background="#FAFAFA";break;
+        case 12:document.getElementById("movie").style.background="#FAFAFA";break;
+        case 13:document.getElementById("video").style.background="#FAFAFA";break;
+        case 14:document.getElementById("jipin").style.background="#FAFAFA";break;
+        case 15:document.getElementById("webgame").style.background="#FAFAFA";break;
+        case 16:document.getElementById("socialgame").style.background="#FAFAFA";break;
+        case 17:document.getElementById("meike").style.background="#FAFAFA";break;
+        case 18:document.getElementById("bargin").style.background="#FAFAFA";break;
+    }
+}
       
   
   </script>
@@ -195,24 +298,67 @@
         <center>
 	        <div id="div_head_left">
 	            <img src="0.jpg" />
+	            
 				 <div class="div_head_right" id="div_daohang" onmouseover="bianse_daohang()" onmouseout="fanhui_daohang()">
 				   <a class="a_head_right" href="http://www.kaixin001.com">
-				     <b>导航 </b>
+				     <b>导航</b>
 				   </a>
 				 </div>
+				 <div id="action_top_right"  onmouseover="action_top_right.style.display='block';" onmouseout="action_top_right.style.display='none';">
+                    <div id="action_top_right_left">
+                        <div class="action_top_right_element" id="phone" onmousemove="_bgcolor(1);" onmouseout="_bgcolor_cancel(1);">
+                            <div class="element_in"><a href="http://mobile.kaixin001.com/kxmobile/index.php" class="element_in">手机版</a></div></div>
+                        <div class="action_top_right_element" id="zhuantie" onmousemove="_bgcolor(2);" onmouseout="_bgcolor_cancel(2);">
+                            <div class="element_in"><a href="http://www.kaixin001.com/repaste/all.html" class="element_in">转帖</a></div></div>
+                        <div class="action_top_right_element" id="vote" onmousemove="_bgcolor(3);" onmouseout="_bgcolor_cancel(3);">
+                            <div class="element_in"><a href="http://www.kaixin001.com/vote/new.html" class="element_in">投票</a></div></div>
+                        <div class="action_top_right_element" id="log" onmousemove="_bgcolor(4);" onmouseout="_bgcolor_cancel(4);">
+                            <div class="element_in"><a href="http://www.kaixin001.com/records/random.html" class="element_in">记录</a></div></div>
+                        <div class="action_top_right_element" id="topic" onmousemove="_bgcolor(5);" onmouseout="_bgcolor_cancel(5);">
+                            <div class="element_in"><a href="http://www.kaixin001.com/zhuanti/index.php" class="element_in">专题</a></div></div>
+                        <div class="action_top_right_element" id="shopping" onmousemove="_bgcolor(6);" onmouseout="_bgcolor_cancel(6);">
+                            <div class="element_in"><a href="http://tuan.kaixin001.com/" class="element_in">团购</a></div></div>
+                        <div class="action_top_right_element" id="games" onmousemove="_bgcolor(7);" onmouseout="_bgcolor_cancel(7);">
+                            <div class="element_in"><a href="http://xyx.kaixin001.com/" class="element_in">小游戏</a></div></div>
+                        <div class="action_top_right_element" id="prinsiple" onmousemove="_bgcolor(8);" onmouseout="_bgcolor_cancel(8);">
+                            <div class="element_in"><a href="http://www.kaixin001.com/page/index2.html" class="element_in">公共主页</a></div></div>
+                        <div class="action_top_right_element" id="animal" onmousemove="_bgcolor(9);" onmouseout="_bgcolor_cancel(9);" >
+                            <div class="element_in"><a href="http://mobile.kaixin001.com/kxmobile/index.php?t=5" class="element_in">动物王国</a></div></div>
+                    </div>
+                    <div id="action_top_right_right">
+                        <div class="action_top_right_element" id="photo" onmousemove="_bgcolor(10);" onmouseout="_bgcolor_cancel(10);">
+                            <div class="element_in"><a href="http://www.kaixin001.com/photo/guangchang.html" class="element_in">照片</a></div></div>
+                        <div class="action_top_right_element" id="evaluate" onmousemove="_bgcolor(11);" onmouseout="_bgcolor_cancel(11);">
+                            <div class="element_in"><a href="http://reg.kaixin001.com/rating/newest_0.html" class="element_in">评比</a></div></div>
+                        <div class="action_top_right_element" id="movie" onmousemove="_bgcolor(12);" onmouseout="_bgcolor_cancel(12);">
+                            <div class="element_in"><a href="http://reg.kaixin001.com/film/list.html" class="element_in">电影</a></div></div>
+                        <div class="action_top_right_element" id="video" onmousemove="_bgcolor(13);" onmouseout="_bgcolor_cancel(13);">
+                            <div class="element_in"><a href="http://v.kaixin001.com/" class="element_in">视频</a></div></div>
+                        <div class="action_top_right_element" id="jipin" onmousemove="_bgcolor(14);" onmouseout="_bgcolor_cancel(14);">
+                            <div class="element_in"><a href="http://jipin.kaixin001.com/" class="element_in">开心集品</a></div></div>
+                        <div class="action_top_right_element" id="webgame" onmousemove="_bgcolor(15);" onmouseout="_bgcolor_cancel(15);">
+                            <div class="element_in"><a href="http://game.kaixin001.com/" class="element_in">网页游戏</a></div></div>
+                        <div class="action_top_right_element" id="socialgame" onmousemove="_bgcolor(16);" onmouseout="_bgcolor_cancel(16);">
+                            <div class="element_in"><a href="http://game.kaixin001.com/#sns"  class="element_in">社交游戏</a></div></div>
+                        <div class="action_top_right_element" id="meike" onmousemove="_bgcolor(17);" onmouseout="_bgcolor_cancel(17);">
+                            <div class="element_in"><a href="http://mobile.kaixin001.com/kxmobile/index.php?t=3" class="element_in">美刻</a></div></div>
+                        <div class="action_top_right_element" id="bargin" onmousemove="_bgcolor(18);" onmouseout="_bgcolor_cancel(18);">
+                            <div class="element_in"><a href="http://buy.kaixin001.com/" class="element_in">名品折扣</a></div></div>
+                    </div>
+                </div>
 				 <div class="div_head_right" id="div_bangzhu" onmouseover="bianse_bangzhu()" onmouseout="fanhui_bangzhu()">
 				    <a class="a_head_right" href="http://www.kaixin001.com">
-					  <b> 帮助</b>
+					  <b>帮助</b>
 					</a>
 				 </div>
 				 <div class="div_head_right" id="div_denglu" onmouseover="bianse_denglu()" onmouseout="fanhui_denglu()">
 				    <a class="a_head_right" href="http://www.kaixin001.com">
-					  <b> 登陆</b>
+					  <b>登陆</b>
 					</a>
 				 </div>
 				 <div  id="div_zhuce" class="div_head_right" onmouseover="bianse_zhuce()" onmouseout="fanhui_zhuce()">
 				    <a class="a_head_right" href="http://www.kaixin001.com">
-					  <b> 注册</b>
+					  <b>注册</b>
 					</a>
 				 </div>
 	        </div>
@@ -226,29 +372,41 @@
 				     十秒加入开心网，找到全部好友
 				   </h3>
 			  </div>
+			
 			  <ul class="ul_body_left">
 			      <li id="li_one">
 				     <div class="div_body_left_l_left"> 电子邮箱：</div>
 					  <div class="div_body_left_l_right" >
 					      <div id="div_email_change" >
 					          <b>请选择邮箱的类型</b>
-					              <a  id="aa01" class="a_email_change"   onclick="{text_email01.value=aa01.innerHTML; div_email_change.style.display='none';}">@qq.com</a>
-					              <a  id="aa02" class="a_email_change"  onclick="{text_email01.value=aa02.innerHTML; div_email_change.style.display='none';}">@163.com</a>
-					              <a  id="aa03" class="a_email_change"  onclick="{text_email01.value=aa03.innerHTML; div_email_change.style.display='none';}">@sina.com</a>
-					              <a  id="aa04" class="a_email_change"  onclick="{text_email01.value=aa04.innerHTML; div_email_change.style.display='none';}">@sina.cn</a>
-					              <a  id="aa05" class="a_email_change"   onclick="{text_email01.value=aa05.innerHTML; div_email_change.style.display='none';}">@hotmail.com</a>
-					              <a  id="aa06" class="a_email_change"  onclick="{text_email01.value=aa06.innerHTML; div_email_change.style.display='none';}">@gmail.com </a>
-					              <a  id="aa07" class="a_email_change"   onclick="{text_email01.value=aa07.innerHTML; div_email_change.style.display='none';}">@sohu.cn</a>
-					              <a  id="aa08" class="a_email_change"  onclick="{text_email01.value=aa08.innerHTML; div_email_change.style.display='none';}">@yahoo.cn</a>
-					              <a  id="aa09" class="a_email_change"  onclick="{text_email01.value=aa09.innerHTML; div_email_change.style.display='none';}">@139.cn</a>
+					              <a  id="aa01" class="a_email_change"   onclick="{text_email01.value=aa01.innerHTML;mail_turnNone();}">@qq.com</a>
+					              <a  id="aa02" class="a_email_change"  onclick="{text_email01.value=aa02.innerHTML; mail_turnNone();}">@163.com</a>
+					              <a  id="aa03" class="a_email_change"  onclick="{text_email01.value=aa03.innerHTML; mail_turnNone();}">@sina.com</a>
+					              <a  id="aa04" class="a_email_change"  onclick="{text_email01.value=aa04.innerHTML; mail_turnNone();}">@sina.cn</a>
+					              <a  id="aa05" class="a_email_change"   onclick="{text_email01.value=aa05.innerHTML; mail_turnNone();}">@hotmail.com</a>
+					              <a  id="aa06" class="a_email_change"  onclick="{text_email01.value=aa06.innerHTML; mail_turnNone();}">@gmail.com </a>
+					              <a  id="aa07" class="a_email_change"   onclick="{text_email01.value=aa07.innerHTML; mail_turnNone();}">@sohu.cn</a>
+					              <a  id="aa08" class="a_email_change"  onclick="{text_email01.value=aa08.innerHTML; mail_turnNone();}">@yahoo.cn</a>
+					              <a  id="aa09" class="a_email_change"  onclick="{text_email01.value=aa09.innerHTML; mail_turnNone();}">@139.cn</a>
 					              
 					      </div>
-					      <input  id="text_email01" class="input_text" type="text" onclick="out_email()"  onblur="xiaoshi()" onkeyup="change_email()" onload="jiance_email()" /><br/>
+					      <input  id="text_email01" class="input_text" type="text" onclick="mail_turnNone()"  onblur="mail_turnNone()" onkeyup="change_email()" onload="mail_turnNone()" /><br/>
 						  <font style="font-size:12px;color:#999999;">如果没有邮箱，你可以用</font><a id="a1" onclick="zhuanhuan1()" >注册账号</a>
                       </div> 
                       <div class="div_yincang" id="div_yincang_email">
                          请填写有效电子邮箱，推荐使用<a class="a_qq_email">QQ邮箱</a>
                       </div>
+                      <div class="div_out_tutu" id="tutu0000" style="display:none;"  >
+				              <img class="img_tutu"  src="5.gif"/>
+				       </div>
+				      <div class="div_jiance" id="div_jiance_email" style="display:none;">
+				             <div class="div_img" style="width:18px;height:24px;float:left;">
+				                    <img src="6.gif" />
+				             </div>
+				             <div class="div_jiance_wenben" >
+				                       请填写正确的电子邮箱
+				             </div>
+				        </div>
 				  </li>
 				  
 				  <li id="li_two" style="display:none;">
@@ -309,7 +467,7 @@
 				     <div class="div_body_left_l_left">生 &nbsp&nbsp&nbsp&nbsp 日：</div>
 				     <div class="div_body_left_l_right"> 
 				           <select name="year" onchange="jiance_birthday()" id="select_year">
-                               <option >请选择</option>
+                               <option  value="请选择">请选择</option>
                                <option >1990</option>
                                <option >1991</option> 
                                <option >1992</option>
@@ -322,7 +480,7 @@
 							   <option >1999</option> 
                         </select>年 &nbsp
                           <select name="month"  onchange="jiance_birthday()" id="select_month">
-						       <option >--</option>
+						       <option  value="--">--</option>
 						       <option >01</option>
 							   <option >02</option>
 							   <option >03</option>
@@ -337,7 +495,7 @@
 							   <option >12</option>
 				         </select>月&nbsp
                           <select name="day" id="select_day" onchange="jiance_birthday()">
-						  <option >--</option>
+						  <option  value="--">--</option>
 						  <option >01</option>
 						  <option >02</option>
 						  <option >03</option>
@@ -386,8 +544,8 @@
 				  </li>
 				  <li>
 				     <div class="div_body_left_l_left">居 住 地 ：</div>
-				     <div class="div_body_left_l_right"> 
-				        <input id="select_address" type="text" value="济南" onfocus="jiance_address()" style="cursor: pointer; background-image: url('9.gif'); background-attachment: scroll; background-repeat: no-repeat; background-position-x: right; background-position-y: 4px; background-size: auto; background-origin: padding-box; background-clip: border-box; background-color: transparent;"  onclick="{div_city.style.display='block';}" />
+				     <div class="div_body_left_l_right" > 
+				        <input id="select_address" type="text" value="济南" onfocus="jiance_address()" style="  cursor:pointer; background:url(9.gif) right 50% no-repeat;" onclick="{div_city.style.display='block';}" />
 				          
 				       
 				     </div>
